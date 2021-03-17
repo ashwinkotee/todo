@@ -1,0 +1,7 @@
+<h1> Task Detail <h1>
+<div>
+        {% comment %} <a href="{% url 'update_task' %}"> update </a> {% endcomment %}
+        <p>{{todo_item.title}}</p>
+        <p>{{todo_item.status}}</p>
+        <button type="button" method='POST'>Edit</button>
+    </div>

@@ -1,0 +1,110 @@
+<html>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<body>
+    {% comment %} <div class="container-fluid" id="accordionExample">
+        <div class="row">
+            <div class="col-8">col-8</div>
+            <div class="col-4">col-4</div>
+        </div>
+    </div> {% endcomment %}
+
+{% comment %} <h1> Index Html2 </h1> {% endcomment %}
+{% comment %} <did class="container-fluid" id="accordionExample"> {% endcomment %}
+        
+    {% comment %} <form method="post" action="/">
+        {% csrf_token %}
+        {{form}}
+        <input type = "submit" name="Create Task">
+    </form> {% endcomment %}
+
+
+    {% comment %} {% for task in all_items%}
+        <div>
+
+            <p> Title: {{task.title}}</p>
+            <p>Status: {{task.status}}</p>
+            <a href="{% url 'delete' task.id %}">Delete</a>
+            <a href="{% url 'update' task.id %}">Update</a>
+
+
+        </div>
+    {% endfor%} {% endcomment %}
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+
+
+<div>
+    <div class="d-flex p-2" class="container">
+        <form method="post" action="/">
+                {% csrf_token %}
+                {{form}}
+                <input type = "submit" name="Create Task">
+            </form>
+    </div>
+    {% for task in all_items %}
+        <div class="container">
+            <div  class="card" style="width: 18rem;">
+                <div class="card-body" >
+                    <h5 class="col-md-12 text-center" class="card-title">{{task.title}}</h5>
+                    {%if task.status == True%}
+                    <span  class="badge bg-success">Completed</span></div>
+                    {% else %}
+                    <span class="badge bg-danger">Not-Completed</span></div>
+                    {% endif %}
+                    <div class="col-md-12 text-center">
+                            <a  class="btn btn-primary mt-3 centrered" href="{% url 'delete' task.id %}">Delete</a>
+                            <a class="btn btn-primary mt-3" href="{% url 'update' task.id %}">Update</a>
+                    </div>
+            </div>
+        </div>
+        <br></br>
+    {% endfor%}
+</div>
+
+
+    {% comment %} {% for task in all_items%}
+                <div  class="col-2">{{task.title}}</div>
+                <div class="col-2">
+                {%if task.status == True%}
+                <span class="badge bg-success">Completed</span></div>
+                {% else %}
+                <span class="badge bg-danger">Not-Completed</span></div>
+                {% endif %}
+            </div>
+        </div>
+        <a class="btn btn-primary" href="{% url 'delete' task.id %}">Delete</a>
+        <a class="btn btn-primary" href="{% url 'update' task.id %}">Update</a>
+        <br></br>
+    {% endfor%} {% endcomment %}
+
+</div>
+
+
+
+
+
+</body>
+</html>
